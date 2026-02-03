@@ -546,6 +546,26 @@ body.theme-light .timeline::before{ background: rgba(24,88,62,0.18); }
 .tl-list{ margin: 10px 0 0; padding-left: 18px; color: var(--text); }
 .tl-list li{ margin: 6px 0; }
 
+.tl-head{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tl-logo{
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(24,88,62,0.06);
+  display: grid;
+  place-items: center;
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--accent);
+}
+
 /* CV box */
 .cvbox{
   border: 1px solid rgba(53,215,255,0.30);

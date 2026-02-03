@@ -36,6 +36,18 @@
     });
   }
 
+  // ---- Email (obfuscated display) ----
+  const emailLink = $("#emailLink");
+  if(emailLink){
+    const user = emailLink.getAttribute("data-user");
+    const domain = emailLink.getAttribute("data-domain");
+    const email = `${user}@${domain}`;
+    emailLink.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.location.href = `mailto:${email}`;
+    });
+  }
+
   // ---- Scroll progress ----
   const progress = $("#top-progress");
   const onScroll = () => {
