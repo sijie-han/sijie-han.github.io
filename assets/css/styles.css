@@ -213,6 +213,20 @@ body.theme-light .theme-toggle:hover{ background: rgba(0,0,0,0.06); }
   color: var(--text);
   max-width: 60ch;
 }
+.hero__lede a,
+.section__sub a{
+  display: inline-block;
+  padding: 0 6px;
+  border-radius: 6px;
+  background: rgba(47,143,91,0.12);
+  color: var(--text);
+  text-decoration: none;
+  border: 1px solid rgba(47,143,91,0.20);
+}
+.hero__lede a:hover,
+.section__sub a:hover{
+  background: rgba(47,143,91,0.18);
+}
 .hero__cta{
   display: flex;
   gap: 12px;
@@ -556,14 +570,14 @@ body.theme-light .timeline::before{ background: rgba(24,88,62,0.18); }
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  border: 1px solid var(--border);
-  background: rgba(24,88,62,0.06);
+  border: 1px solid rgba(47,143,91,0.35);
+  background: var(--accent);
   display: grid;
   place-items: center;
   font-family: var(--mono);
   font-weight: 700;
   font-size: 0.85rem;
-  color: var(--accent);
+  color: #ffffff;
 }
 
 /* CV box */
