@@ -328,6 +328,38 @@ body.theme-light .btn:hover{ background: rgba(0,0,0,0.06); }
   gap: 14px;
 }
 
+.hero__photo-card{
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.04);
+  border-radius: var(--radius);
+  padding: 14px;
+  display: grid;
+  gap: 12px;
+  box-shadow: var(--shadow);
+}
+
+.hero__photo{
+  width: 100%;
+  display: block;
+  border-radius: 14px;
+  object-fit: cover;
+  aspect-ratio: 4 / 5;
+}
+
+.hero__photo-meta{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.hero__photo-meta a{
+  color: rgba(53,215,255,0.95);
+  font-weight: 600;
+}
+
 .terminal{
   border: 1px solid var(--border);
   background: rgba(0,0,0,0.22);
