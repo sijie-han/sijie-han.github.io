@@ -215,17 +215,17 @@ body.theme-light .theme-toggle:hover{ background: rgba(0,0,0,0.06); }
 }
 .hero__lede a,
 .section__sub a{
-  display: inline-block;
-  padding: 0 6px;
-  border-radius: 6px;
-  background: rgba(47,143,91,0.12);
   color: var(--text);
-  text-decoration: none;
-  border: 1px solid rgba(47,143,91,0.20);
 }
-.hero__lede a:hover,
-.section__sub a:hover{
-  background: rgba(47,143,91,0.18);
+
+.link-underscore{
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(47,143,91,0.45);
+}
+.link-underscore:hover{
+  text-decoration-color: rgba(47,143,91,0.75);
 }
 .hero__cta{
   display: flex;
