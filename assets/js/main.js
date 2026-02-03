@@ -12,35 +12,11 @@
   const $ = (sel, root=document) => root.querySelector(sel);
   const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
 
-  const prefersDark = () => window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-  // ---- Theme ----
-  const themeKey = "theme";
-  const applyTheme = (mode) => {
-    document.body.classList.toggle("theme-light", mode === "light");
-    document.body.classList.toggle("theme-dark", mode === "dark");
-    const meta = document.querySelector('meta[name="theme-color"]');
-    if(meta){
-      meta.setAttribute("content", mode === "light" ? "#eef1ff" : "#0b1220");
-    }
-  };
-
-  const saved = localStorage.getItem(themeKey);
-  if(saved === "light" || saved === "dark"){
-    applyTheme(saved);
-  } else {
-    applyTheme(prefersDark() ? "dark" : "light");
-  }
-
-  const themeToggle = $("#themeToggle");
-  if(themeToggle){
-    themeToggle.addEventListener("click", () => {
-      const isLight = document.body.classList.contains("theme-light");
-      const next = isLight ? "dark" : "light";
-      localStorage.setItem(themeKey, next);
-      applyTheme(next);
-      toast(`Theme: ${next}`);
-    });
+  // ---- Theme (light only) ----
+  document.body.classList.add("theme-light");
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if(meta){
+    meta.setAttribute("content", "#f6fbf7");
   }
 
   // ---- Mobile nav ----
@@ -128,41 +104,10 @@
     last.textContent = d.toLocaleDateString(undefined, {year:"numeric", month:"short", day:"numeric"});
   }
 
-  // ---- Micro typing loop ----
+  // ---- Static tagline (no typing effect) ----
   const typed = $("#typedTagline");
   if(typed){
-    const phrases = [
-      "Embodied AI • Computer Vision • Robotics",
-      "Simulation Platforms • Unreal Engine 5 • Isaac Sim",
-      "Procedural Generation • Robust Benchmarks • Digital Twins",
-      "Prompt-to-3D Environments • VLMs • Agent Evaluation"
-    ];
-    let i = 0;
-    let k = 0;
-    let dir = 1; // 1 typing, -1 deleting
-    let hold = 0;
-    const tick = () => {
-      if(!typed) return;
-      const full = phrases[i];
-      if(hold > 0){
-        hold -= 1;
-        return;
-      }
-      k += dir;
-      typed.textContent = full.slice(0, k);
-      if(dir === 1 && k >= full.length){
-        dir = -1;
-        hold = 25;
-      } else if(dir === -1 && k <= 0){
-        dir = 1;
-        i = (i + 1) % phrases.length;
-        hold = 6;
-      }
-    };
-    // start with full phrase quickly
-    typed.textContent = phrases[0];
-    i = 0; k = phrases[0].length; dir = -1; hold = 40;
-    setInterval(tick, 60);
+    typed.textContent = "Embodied AI • Computer Vision • Robotics";
   }
 
   // ---- Toast ----
